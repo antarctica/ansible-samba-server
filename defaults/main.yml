@@ -22,13 +22,24 @@ samba_server_pam_password_changes: "no"
 samba_server_file_creation_mask: "0600"
 samba_server_directory_creation_mask: "0700"
 
+# Samba smb.conf shares
 samba_server_default_shares:
   - name: app
-    comment: app
-    path: /app
-    guest_ok: no
-    browseable: no
-    file_creation_mask: 0775
-    directory_creation_mask: 0775
-
+    options:
+      - option: name
+        value: app
+      - option: path
+        value: /app
+      - option: comment
+        value: Application Root
+      - option: guest_ok
+        value: no
+      - option: browseable
+        value: no
+      - option: writable
+        value: yes
+      - option: file_creation_mask
+        value: "0775"
+      - option: directory_creation_mask
+        value: "0775"
 samba_server_user_shares: []

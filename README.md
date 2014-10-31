@@ -101,6 +101,58 @@ These roles are used for internal projects which may dictate whether any contrib
 	* Controls initial permissions applied to newly created directories.
 	* See [here](https://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#DIRECTORYMASK) for more information.
 	* Default: "0700"
+* `samba_server_default_shares`
+	* Array of default Samba shares.
+	* **Do not** override this variable, use `samba_server_user_shares` instead.
+	* Structured as an array of items where each item consists of a share descriptor and array of options and values:
+		* `descriptor`
+			* Identifier used with this variable only.
+		* `options` [array] 
+			* `option`
+				* Name of config option (e.g. "path") 
+			* `value`
+				* Value for option (e.g. "/app")
+	* See below for typical values for shares
+	* Default: (see variable)
+* `samba_server_user_shares`
+	* Array of Samba shares.
+	* Structured as an array of items where each item consists of a share descriptor and array of options and values:
+		* `descriptor`
+			* Identifier used with this variable only.
+		* `options` [array] 
+			* `option`
+				* Name of config option (e.g. "path") 
+			* `value`
+				* Value for option (e.g. "/app")
+	* See below for typical values for shares
+	* Default: "[]  (empty array)"
+
+###Share definitions
+
+The following examples give examples of defining different types of shares.  
+The documentation [here](https://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html) details the purpose and syntax for each option used.
+
+#### Read/Write access by all Samba users
+
+      - name: app
+        options:
+          - option: name
+            value: app
+          - option: path
+            value: /app
+          - option: comment
+            value: Application Root
+          - option: guest_ok
+            value: no
+          - option: browseable
+            value: no
+          - option: writable
+            value: yes
+          - option: file_creation_mask
+            value: "0775"
+          - option: directory_creation_mask
+            value: "0775"
+
 ## Changelog
 
 ### 0.1.0 - October 2014
