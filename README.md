@@ -7,6 +7,7 @@ Installs Samba server for resource sharing over SMB
 ## Overview
 
 * Installs Samba server and related packages.
+* Configures smb.conf to create specified file shares
 
 ## Author
 

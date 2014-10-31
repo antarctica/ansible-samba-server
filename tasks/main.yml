@@ -11,6 +11,6 @@
     - gksu
 
 - name: configure samba server
-  template: src=etc/samba/smb.cnf.j2 dest=/etc/samba/smb.cnf
+  template: src=etc/samba/smb.conf.j2 dest=/etc/samba/smb.conf
   notify:
     - Restart Samba
