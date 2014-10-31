@@ -1,0 +1,15 @@
+---
+# Configure Samba account for controller user
+
+- name: list samba users
+  command: "pdbedit -L"
+  register: samba_users
+
+- name: test if controller user is in list of samba users
+  shell: 'echo "{{ samba_users.stdout }}" | grep -c {{ samba_server_controller_user_username }}'
+  register: samba_user_controller
+  ignore_errors: True
+
+- name: if needed create samba account for controller user
+  raw: 'echo -ne "{{ samba_server_controller_samba_user_password }}\n{{ samba_server_controller_samba_user_password }}" | smbpasswd -a -s {{ samba_server_controller_user_username }}'
+  when: samba_user_controller.stdout == "0"

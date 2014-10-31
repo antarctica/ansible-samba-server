@@ -8,6 +8,7 @@ Installs Samba server for resource sharing over SMB
 
 * Installs Samba server and related packages.
 * Configures smb.conf to create specified file shares
+* If enabled, sets Samba passwords for controller and app users to allow login
 
 ## Author
 
@@ -56,6 +57,50 @@ These roles are used for internal projects which may dictate whether any contrib
 
 ## Variables
 
+* `samba_server_controller_user_username`
+    * The username of the controller OS user, used for system tasks, if enabled.
+    * This variable must be a valid OS user.
+	* Default: "controller"
+* `samba_server_app_user_username`
+    * The username of the app OS user, used for day to day tasks, if enabled.
+    * This variable must be a valid OS user.
+	* Default: "app"
+* `samba_server_controller_samba_user_enabled`
+    * If "true" the Samba password for the controller OS user will be set to allow the user to login.
+	* Default: true
+* `samba_server_controller_samba_user_password`
+	* Samba password for the controller OS user.
+	* Default: "controller"
+* `samba_server_app_samba_user_enabled`
+    * If "true" the Samba password for the app OS user will be set to allow the user to login.
+	* Default: true
+* `samba_server_app_samba_user_password`
+	* Samba password for the controller OS user.
+	* Default: "app"
+* `samba_server_workgroup`
+	* Workgroup of the Samba server.
+	* See [here](https://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#WORKGROUP) for more information.
+	* Default: "NERC"
+* `samba_server_role`
+	* Operating mode of the Samba server.
+	* See [here](https://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#SERVERROLE) for more information and list of possible values this **must** be.
+	* Default: "standalone server"
+* `samba_server_sync_password_changes`
+	* If "yes" OS and Samba passwords will be synchronised.
+	* See [here](https://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#UNIXPASSWORDSYNC) for more information.
+	* Default: "no"
+* `samba_server_pam_password_changes`
+	* Use PAM when changing Samba passwords.
+	* See [here](https://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#UNIXPASSWORDSYNC) for more information.
+	* Default: "no"
+* `samba_server_file_creation_mask`
+	* Controls initial permissions applied to newly created files.
+	* See [here](https://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#CREATEMASK) for more information.
+	* Default: "0600"
+* `samba_server_directory_creation_mask`
+	* Controls initial permissions applied to newly created directories.
+	* See [here](https://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#DIRECTORYMASK) for more information.
+	* Default: "0700"
 ## Changelog
 
 ### 0.1.0 - October 2014

@@ -1,6 +1,17 @@
 ---
 # Default variables - inventory or playbook overrides will be respected
 
+# OS Users
+samba_server_controller_user_username: controller
+samba_server_app_user_username: app
+
+# Samba accounts/passwords
+samba_server_controller_samba_user_enabled: true
+samba_server_controller_samba_user_password: "controller"
+
+samba_server_app_samba_user_enabled: true
+samba_server_app_samba_user_password: "app"
+
 samba_server_workgroup: "NERC"
 samba_server_role: "standalone server"
 
