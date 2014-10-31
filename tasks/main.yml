@@ -1,0 +1,16 @@
+---
+# Installs and configures samba server
+
+- name: install samba server
+  apt: update_cache=yes cache_valid_time=3600 pkg={{ item }} state=present # won't update if done under an hour ago
+  with_items:
+    - samba
+    - samba-common
+    - system-config-samba
+    - python-glade2
+    - gksu
+
+- name: configure samba server
+  template: src=etc/samba/smb.cnf.j2 dest=/etc/samba/smb.cnf
+  notify:
+    - Restart Samba
