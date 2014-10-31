@@ -12,14 +12,15 @@ samba_server_controller_samba_user_password: "controller"
 samba_server_app_samba_user_enabled: true
 samba_server_app_samba_user_password: "app"
 
+# Samba smb.conf settings
 samba_server_workgroup: "NERC"
 samba_server_role: "standalone server"
 
 samba_server_sync_password_changes: "no"
 samba_server_pam_password_changes: "no"
 
-samba_server_file_creation_mask: 0775
-samba_server_directory_creation_mask: 0775
+samba_server_file_creation_mask: "0600"
+samba_server_directory_creation_mask: "0700"
 
 samba_server_default_shares:
   - name: app
