@@ -37,13 +37,13 @@ This role is designed for internal use but if useful can be shared publicly.
 	* Default: true
 * `samba_server_controller_samba_user_password`
 	* Samba password for the controller OS user.
-	* Default: "controller"
+	* Default: "password"
 * `samba_server_app_samba_user_enabled`
     * If "true" the Samba password for the app OS user will be set to allow the user to login.
 	* Default: true
 * `samba_server_app_samba_user_password`
 	* Samba password for the controller OS user.
-	* Default: "app"
+	* Default: "password"
 * `samba_server_workgroup`
 	* Workgroup of the Samba server.
 	* See [here](https://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#WORKGROUP) for more information.

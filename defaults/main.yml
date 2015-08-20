@@ -7,10 +7,10 @@ samba_server_app_user_username: app
 
 # Samba accounts/passwords
 samba_server_controller_samba_user_enabled: true
-samba_server_controller_samba_user_password: "controller"
+samba_server_controller_samba_user_password: password
 
 samba_server_app_samba_user_enabled: true
-samba_server_app_samba_user_password: "app"
+samba_server_app_samba_user_password: password
 
 # Samba smb.conf settings
 samba_server_workgroup: "NERC"
