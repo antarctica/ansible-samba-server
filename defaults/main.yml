@@ -7,20 +7,20 @@ samba_server_app_user_username: app
 
 # Samba accounts/passwords
 samba_server_controller_samba_user_enabled: true
-samba_server_controller_samba_user_password: "controller"
+samba_server_controller_samba_user_password: password
 
 samba_server_app_samba_user_enabled: true
-samba_server_app_samba_user_password: "app"
+samba_server_app_samba_user_password: password
 
 # Samba smb.conf settings
 samba_server_workgroup: "NERC"
 samba_server_role: "standalone server"
 
-samba_server_sync_password_changes: "no"
-samba_server_pam_password_changes: "no"
+samba_server_sync_password_changes: "no"  # must be quoted to prevent true/false conversion by Ansible
+samba_server_pam_password_changes: "no"  # must be quoted to prevent true/false conversion by Ansible
 
-samba_server_file_creation_mask: "0600"
-samba_server_directory_creation_mask: "0700"
+samba_server_file_creation_mask: "0600"  # must be quoted to prevent loss of leading zeros
+samba_server_directory_creation_mask: "0700"  # must be quoted to prevent loss of leading zeros
 
 # Samba smb.conf shares
 samba_server_default_shares:
