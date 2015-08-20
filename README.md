@@ -142,4 +142,4 @@ Issues, bugs, improvements, questions, suggestions and other tasks related to th
 
 ## License
 
-Copyright 2014 NERC BAS. Licensed under the MIT license, see `LICENSE` for details.
+Copyright 2015 NERC BAS. Licensed under the MIT license, see `LICENSE` for details.
