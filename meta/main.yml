@@ -13,10 +13,10 @@ galaxy_info:
 
 armadillo_info:
   name: Samba Server
-  version: 0.1.1
+  version: 0.2.0
   source: git@stash.ceh.ac.uk:7999/barc/samba-server.git
   dependencies:
-  - git@stash.ceh.ac.uk:7999/barc/core.git#v0.5.1
+  - git@stash.ceh.ac.uk:7999/barc/core.git#v1.0.0
 
 dependencies:
   - core
